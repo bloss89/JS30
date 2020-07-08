@@ -18,29 +18,54 @@
     }
 
     // Regular
-
-    // Interpolated
-
-    // Styled
-
-    // warning!
-
-    // Error :|
-
-    // Info
-
-    // Testing
-
+console.log("how you doin");
     // clearing
+console.clear();
+console.log("Lipupu");
+    // Interpolated
+console.log('hey', '💩');
+    // Styled
+console.log('%c sloth', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue');
+    // warning!
+console.warn("You've been warned");
+    // Error :|
+console.error("Abort mission");
+    // Info
+console.info("Enough info for today");
+    // Testing
+const p = document.querySelector('p');
 
+console.assert(p.classList.contains('low class'), 'This para has supreme class!');
     // Viewing DOM Elements
-
+console.log(p);
+console.dir(p);
     // Grouping together
-
+dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
     // counting
-
+console.count('baby');
+console.count('baby');
+console.count('baby');
+console.count('no');
+console.count('baby');
+console.count('baby');
+console.count('baby');
+console.count('oh');
     // timing
+console.time('thats so fetch');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('thats so fetch');
+        console.log(data);
+      });
 
+console.table(dogs);
   </script>
 </body>
 </html>
