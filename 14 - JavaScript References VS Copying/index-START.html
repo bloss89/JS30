@@ -8,13 +8,29 @@
 
   <script>
     // start with strings, numbers and booleans
+	let age=10;
+	let age2=age;
+	console.log(age,age2);
+	age=5;
+	console.log(age,age2);
+	
+	let name='james';
+	let name2=name;
+	console.log(name,name2);
+	name='bond';
+	console.log(name,name2);
+	
 
     // Let's say we have an array
-    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];	
 
     // and we want to make a copy of it.
+	const team = players;
+	console.log(players, team);
 
     // You might think we can just do something like this:
+	team[3]='bond';
+	console.log(players, team);
 
     // however what happens when we update that array?
 
@@ -27,13 +43,28 @@
     // So, how do we fix this? We take a copy instead!
 
     // one way
-
+team2= players.slice();
+console.log(players, team2);
+team2[3]='james';
+console.log(players, team2);
     // or create a new array and concat the old one in
 
+team3= [].concat(players);
+console.log(players, team3);
+team3[3]='james';
+console.log(players, team3);
     // or use the new ES6 Spread
+team4= [...players];
+console.log(players, team4);
+team4[3]='james';
+console.log(players, team4);
 
     // now when we update it, the original one isn't changed
 
+team5= Array.from(players);
+console.log(players, team5);
+team5[3]='james';
+console.log(players, team5);
     // The same thing goes for objects, let's say we have a person object
 
     // with Objects
@@ -43,13 +74,31 @@
     };
 
     // and think we make a copy:
-
+const ghost = person;
+ghost.age=500;
+console.log(person,ghost);
     // how do we take a copy instead?
-
+const vampire = Object.assign({},person,{power: 'fangs', name: 'vlad'});
+console.log(person,vampire);
+vampire.age=1000;
+console.log(person,vampire);
     // We will hopefully soon see the object ...spread
+const witcher = {...person};
+console.log(person,witcher);
+witcher.name='superman';
+console.log(person,witcher);
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
-
+	
+	const witch = {name:'hermione',age:'30',powers:{geek : 100, good:100}};
+	const luna = Object.assign({},witch);
+	console.log(witch,luna);
+	luna.name='luna';
+	luna.powers.geek=101;
+	console.log(witch,luna);
+const bellatrix = JSON.parse(JSON.stringify(witch));
+bellatrix.good=-100;
+console.log(witch,luna,bellatrix);
   </script>
 
 </body>
